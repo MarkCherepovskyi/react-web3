@@ -1,0 +1,11 @@
+@import './styles/app';
+
+.app__container {
+  display: grid;
+  grid-template-rows: toRem(85) 1fr max-content;
+  flex: 1;
+
+  @include respond-to(small) {
+    grid-template-rows: max-content 1fr max-content;
+  }
+}
