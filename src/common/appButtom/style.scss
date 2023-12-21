@@ -30,23 +30,6 @@
     opacity: 0.5;
   }
 
-  &:not([disabled]):hover,
-  &:not([disabled]):focus {
-    text-decoration: none;
-    transition-timing-function: ease-out;
-    color: var(--app-button-text-hover);
-    background-color: var(--app-button-bg-hover);
-    border-color: var(--app-button-border-hover);
-    border: var(--app-button-border-hover);
-  }
-
-  &:not([disabled]):active {
-    text-decoration: none;
-    transition-timing-function: ease-out;
-    background-color: var(--app-button-bg-active);
-    border: var(--app-button-border-active);
-  }
-
   &--filled {
     --app-button-filled-bg: red;
     --app-button-filled-bg-hover: var(--primary-dark);

@@ -1,15 +1,19 @@
+import { FC } from 'react'
 import {IconNamesEnum} from "../../enums"
 
-import "./Icon.scss"
+import './style.scss'
 
-type  IconProps = {
-    image:  IconNamesEnum
+interface IconProps {
+    name: IconNamesEnum
+    color?:  string
 }
-export const Icon = (props: IconProps) => {
+
+export const Icon: FC<IconProps> = ({ name, color='black', ...rest }) => {
     return (
-        <img  className="icon" src={`/src/assets/icons/${props.image}-icon.svg`} alt={""}/>
-        // TODO: make better
+        <svg className="icon" aria-hidden='true'>
+            <use href={`#${name}-icon`} color={color} {...rest} />
+        </svg>
     )
 }
 
-export default Icon;
+export default Icon

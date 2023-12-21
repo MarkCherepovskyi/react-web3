@@ -1,14 +1,15 @@
-import {AppButton} from "../";
-import {Provider} from "@distributedlab/w3p";
-import {IconNamesEnum} from "../../enums";
+import {AppButton} from "../"
+import {Provider} from "@distributedlab/w3p"
+import {IconNamesEnum} from "../../enums"
+import {FC} from "react"
 
-import './Navbar.scss';
+import './style.scss'
 
 type NavbarProps = {
     provider?: Provider
 }
 
-export const Navbar = (props: NavbarProps) => {
+export const Navbar: FC<NavbarProps> = (props: NavbarProps) => {
     const connect = async () => {
         await props.provider?.connect()
     }
@@ -17,9 +18,11 @@ export const Navbar = (props: NavbarProps) => {
     <div className="navbar">
         <div className="navbar__content">
             {/* TODO  localization */}
-            <AppButton className="navbar__logo"
+            <AppButton
                        route="/main"
-                       leftImage={IconNamesEnum.Logo}/>
+                       leftImage={IconNamesEnum.Logo}
+                        isDisabled={false}/>
+
 
             <AppButton text="connect" scheme="filled" color="info"
                        onClick={() => {

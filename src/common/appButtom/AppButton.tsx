@@ -1,9 +1,10 @@
 import {IconNamesEnum} from "../../enums"
-import {Icon} from "../"
+import {Icon} from "../index.ts"
+import {FC} from "react"
 
-import './AppButton.scss'
+import './style.scss'
 
-type appButton = {
+type AppButtonProps = {
     text?: string
     scheme?: string
     color?: string
@@ -11,15 +12,10 @@ type appButton = {
     rightImage?: IconNamesEnum
     onClick?: () => void
     route?: string
-    disabled?: boolean
-    className?: string
+    isDisabled?: boolean
 }
 
-export const AppButton = (props: appButton) => {
-    const {
-        color = "info",
-        scheme = "flat"
-    } = props;
+export const AppButton:FC<AppButtonProps>  = ({ text, rightImage, leftImage, isDisabled,route, onClick, scheme = "flat",  color = "info"}: AppButtonProps) => {
 
 
     const buttonClasses =
@@ -27,25 +23,25 @@ export const AppButton = (props: appButton) => {
             'app-button',
             `app-button--${scheme}`,
             `app-button--${color}`,
-            ...(props.disabled ? ['app-button--disabled'] : []),
+            ...(isDisabled ? ['app-button--disabled'] : []),
         ].join(' ')
 
     const handleClick = () => {
-        if (props.route) {
-            window.location.replace(props.route)
+        if (route) {
+            window.location.replace(route)
             return
         }
-        if (props.onClick) {
-            props.onClick()
+        if (onClick) {
+            onClick()
         }
     }
 
     return (
-        <div className={props.className}>
-            <button onClick={handleClick} className={buttonClasses}>
-                {props.leftImage && <Icon image={props.leftImage} />}
-                {props.text && <p>{props.text}</p>}
-                {props.rightImage && <Icon image={props.rightImage} />}
+        <div>
+            <button onClick={handleClick} className={buttonClasses} disabled={isDisabled}>
+                {leftImage && <Icon name={leftImage} />}
+                {text && <p>{text}</p>}
+                {rightImage && <Icon name={rightImage} />}
             </button>
         </div>
     )

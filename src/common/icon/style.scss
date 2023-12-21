@@ -1,0 +1,11 @@
+@import 'src/styles/app';
+
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    max-width: toRem(35);
+    max-height: toRem(35);
+}
+
