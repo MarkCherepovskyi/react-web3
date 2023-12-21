@@ -1,0 +1,8 @@
+@import 'src/styles/app';
+
+.home-page {
+  max-width: var(--page-xmedium);
+  min-width: var(--page-small);
+  width: 100%;
+  margin: 0 auto;
+}

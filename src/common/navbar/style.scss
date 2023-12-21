@@ -1,0 +1,25 @@
+@import 'src/styles/app';
+
+.navbar {
+    background: var(--background-primary-main);
+    border-bottom: var(--border-primary-main);
+    margin-bottom: toRem(20);
+    box-shadow: 0 toRem(1) toRem(20) var(--black);
+    max-height: toRem(70);
+    height: 100%;
+}
+
+.navbar__content {
+    display: flex;
+    align-items: center;
+    margin: auto;
+    justify-content: space-between;
+    padding: toRem(12) var(--app-padding-right) toRem(12) var(--app-padding-left);
+    max-width: var(--page-large);
+    width: 100%;
+}
+
+.navbar__logo{
+    width: toRem(50);
+    height: toRem(50);
+}
